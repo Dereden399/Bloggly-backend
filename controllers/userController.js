@@ -35,4 +35,18 @@ userRouter.get("/", async (req, res) => {
   res.status(200).json(users.map(u => u.toJSON()))
 })
 
+userRouter.get("/:id", async (req, res) => {
+  const user = await User.findById(req.params.id).populate("blogs", {
+    title: 1,
+    url: 1,
+    author: 1,
+    id: 1,
+  })
+  if (!user) {
+    res.status(404).end()
+  } else {
+    res.status(200).json(user.toJSON())
+  }
+})
+
 module.exports = userRouter
