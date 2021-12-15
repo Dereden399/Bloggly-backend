@@ -23,6 +23,13 @@ blogsRouter.get("/:id", async (req, res) => {
   }
 })
 
+blogsRouter.get("/:id/comments", async (req, res) => {
+  const id = req.params.id
+  const blog = await Blog.findById(id)
+  if (blog) res.status(200).json(blog.comments)
+  else res.status(404).end()
+})
+
 blogsRouter.post("/", async (req, res) => {
   const body = req.body
   const blog = new Blog({
