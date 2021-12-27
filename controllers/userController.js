@@ -41,6 +41,7 @@ userRouter.get("/:id", async (req, res) => {
     url: 1,
     author: 1,
     id: 1,
+    likes: 1,
   })
   if (!user) {
     res.status(404).end()
