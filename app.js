@@ -27,6 +27,10 @@ if (process.env.NODE_ENV === "test") {
   const testRouter = require("./controllers/testController")
   app.use("/test", testRouter)
 }
+app.use(express.static("build"))
+app.get("*", function (req, res) {
+  res.sendFile("index.html", { root: "./build" })
+})
 app.use(middlewares.unknownEndpoint)
 app.use(middlewares.errorHandler)
 
