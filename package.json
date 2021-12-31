@@ -11,13 +11,13 @@
   "author": "Dereden",
   "license": "ISC",
   "devDependencies": {
-    "cross-env": "^7.0.3",
     "jest": "^27.3.1",
     "nodemon": "^2.0.15",
     "supertest": "^6.1.6",
     "@types/jest": "^27.0.3"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
